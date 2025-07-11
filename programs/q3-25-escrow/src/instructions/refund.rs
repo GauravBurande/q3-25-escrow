@@ -6,7 +6,7 @@ use anchor_spl::{
     }
 };
 
-use crate::{make, Escrow};
+use crate::{Escrow};
 
 #[derive(Accounts)]
 pub struct Refund<'info> {
@@ -76,7 +76,7 @@ impl Refund<'_> {
 
         let close_cpi_ctx = CpiContext::new_with_signer(self.token_program.to_account_info(), close_accounts, signer_seeds);
 
-        close_account(close_cpi_ctx);
+        close_account(close_cpi_ctx)?;
         Ok(())
     }
 }
