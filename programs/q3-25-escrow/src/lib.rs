@@ -15,7 +15,7 @@ declare_id!("6ynKAn3rXKKXAqoAP5ik8TqV91swMSjsQqHVd1vER9oV");
 pub mod q3_25_escrow {
     use super::*;
 
-    pub fn initialize(ctx: Context<Make>, seed: u64, amount: u64, receive: u64) -> Result<()> {
+    pub fn make(ctx: Context<Make>, seed: u64, amount: u64, receive: u64) -> Result<()> {
         ctx.accounts.init_escrow(receive, seed, &ctx.bumps)?;
         ctx.accounts.deposit(amount)?;
         Ok(())
